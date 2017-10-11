@@ -1,5 +1,3 @@
-console.log("Hola pestaña hijodeputa")
-
 var toRemove = []
 
 function removePost() {

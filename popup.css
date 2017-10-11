@@ -255,7 +255,7 @@
 }
 
 html {
-  background-color: #d9d9d9;
+  /* background-color: #d9d9d9;*/
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   margin: -9px;
@@ -263,7 +263,7 @@ html {
 
 .wrapper {
   background-color: white;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); */
   margin: 0 auto;
   /* max-width: 320px; */
 }

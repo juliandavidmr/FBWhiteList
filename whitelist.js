@@ -37,7 +37,16 @@ document.addEventListener("change", function (ev) {
   removePost()
 });
 
-chrome.runtime.sendMessage('getList', function (res) {
-  toRemove = JSON.parse(res.list)
-  console.log("Respuesta:", toRemove)
-})
+
+function updateList(params) {
+  chrome.runtime.sendMessage('getList', function (res) {
+    toRemove = JSON.parse(res.list)
+    // console.log("Respuesta:", toRemove)
+  })
+}
+
+setInterval(function () {
+  updateList();
+  removePost();
+}, 8000)
+updateList()

@@ -7,12 +7,12 @@ var app = new Vue({
     text: ''
   },
   mounted: function () {
-    this.list = JSON.parse(localStorage.getItem('list_fb'))
+    this.list = JSON.parse(localStorage.getItem('list_fb') || '[]')
     console.log("Montado:", this.list)
   },
   methods: {
     getList: function () {
-      return JSON.parse(localStorage.getItem('list_fb'))
+      return JSON.parse(localStorage.getItem('list_fb') || '[]')
     },
     setList: function (newList) {
       localStorage.setItem('list_fb', JSON.stringify(newList || this.list))

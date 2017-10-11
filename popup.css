@@ -4,7 +4,7 @@
   background-position: center center;
   background-size: cover;
   color: white;
-  height: 140px;
+  height: 100px;
   position: relative;
 }
 .module-location::before {

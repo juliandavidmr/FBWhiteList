@@ -1,15 +1,6 @@
-console.log("Hola pestaña hijodeputa", document.getElementsByTagName('body'))
+console.log("Hola pestaña hijodeputa")
 
-var list = localStorage.getItem('list_fb_whitelist');
-console.log("Listado:", list)
-
-var toRemove = [
-  'foka',
-  'love',
-  'Humor',
-  'Espectador',
-  'news'  
-]
+var toRemove = []
 
 function removePost() {
   var feed = document.querySelectorAll('#content #mainContainer #content_container #contentArea #stream_pagelet div[role="feed"] > div');
@@ -45,6 +36,8 @@ document.addEventListener("resize", function (ev) {
 document.addEventListener("change", function (ev) {
   removePost()
 });
-// removePost();
-// localStorage.setItem('loaded_fbwt', true);
-// }
+
+chrome.runtime.sendMessage('getList', function (res) {
+  toRemove = JSON.parse(res.list)
+  console.log("Respuesta:", toRemove)
+})

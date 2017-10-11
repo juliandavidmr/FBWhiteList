@@ -1,46 +1,23 @@
 <link href="./popup.css" rel="stylesheet" type="text/css">
+<script src="./vue.js"></script>
 
-<div class="wrapper">
-
+<div id="app" class="wrapper">
   <header class="module-location">
-    <ul class="location-quickstats">
-      <li class="rating-negative">
-        <i>Negative: </i>
-        <span>27</span>
-      </li>
-      <li class="rating-positive">
-        <i>Positive: </i>
-        <span>82</span>
-      </li>
-      <li class="rating-total">
-        <i>Negative: </i>
-        <span>109</span>
-      </li>
-    </ul>
     <div class="location-title rating-positive">
-      <h2>Pun Space</h2>
-      <time>today</time>
+      <input v-model="text" type="text" placeholder="Type a word to ignore...">
+      <button @click="addWord">Save</button>
+      <h2>{{ message }}</h2>
+      <time>{{ time }}</time>
     </div>
   </header>
   <ul class="module-history">
     <li class="rating-negative memo-yep">
-      <h3>Book a flight to Melbourne</h3>
-      <time>5 minutes ago</time>
-      <i>Has a memo attached</i>
-    </li>
-    <li class="rating-negative">
-      <h3>Grab some last Pad Thai w/ Yi</h3>
-      <time>35 minutes ago</time>
+      <h3>List of words to ignore</h3>
+      <time>All publications containing these words will be deleted from your feed</time>
       <i></i>
     </li>
-    <li class="rating-positive">
-      <h3>Clear desk at Pun Space</h3>
-      <time>1 hour ago</time>
-      <i></i>
-    </li>
-    <li class="rating-positive">
-      <h3>Pick up w&t visa from embassy</h3>
-      <time>1 hour ago</time>
+    <li class="rating-positive" v-for="item in list">
+      <h3>{{ item }}</h3>
       <i></i>
     </li>
     <li class="rating-negative memo-yep">

@@ -1,8 +1,23 @@
 'use strict';
 
+function getList() {
+  var list = localStorage.getItem('list_fb')
+  if (!list) {
+    localStorage.setItem('list_fb', JSON.stringify([]));
+  }
+  return localStorage.getItem('list_fb');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log("Cargado", chrome.tabs);
 });
+
+chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
+  console.log("Evento de mensage ejecutado:", req, sender)
+  sendResponse({
+    list: getList()
+  })
+})
 
 chrome.tabs.onCreated.addListener(function (params) {
   console.log('Creada:', params)
